@@ -33,7 +33,7 @@ export function computePrice(
 }
 
 export function formatPrice(value: number, currency: Currency): string {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('he-IL', {
     style: 'currency',
     currency,
     minimumFractionDigits: 2,

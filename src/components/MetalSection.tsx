@@ -21,7 +21,7 @@ export function MetalSection({
   rates,
   colorClass,
 }: MetalSectionProps) {
-  const unitLabel = unit === 'gram' ? '/g' : '/oz';
+  const unitLabel = unit === 'gram' ? '/ג׳' : '/אונ׳';
 
   return (
     <section className={`metal-section ${colorClass}`}>

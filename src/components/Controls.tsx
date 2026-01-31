@@ -14,7 +14,7 @@ export function Controls({ currency, unit, onCurrencyChange, onUnitChange }: Con
   return (
     <div className="controls">
       <div className="control-group">
-        <label className="control-label">Currency</label>
+        <label className="control-label">מטבע</label>
         <div className="toggle-group">
           {currencies.map((c) => (
             <button
@@ -28,7 +28,7 @@ export function Controls({ currency, unit, onCurrencyChange, onUnitChange }: Con
         </div>
       </div>
       <div className="control-group">
-        <label className="control-label">Unit</label>
+        <label className="control-label">יחידה</label>
         <div className="toggle-group">
           {units.map((u) => (
             <button
@@ -36,7 +36,7 @@ export function Controls({ currency, unit, onCurrencyChange, onUnitChange }: Con
               className={`toggle-btn ${unit === u ? 'active' : ''}`}
               onClick={() => onUnitChange(u)}
             >
-              {u === 'gram' ? 'Gram' : 'Troy Oz'}
+              {u === 'gram' ? 'גרם' : 'אונקייה'}
             </button>
           ))}
         </div>

@@ -25,13 +25,13 @@ export default function App() {
 
       {error && !gold && !silver && (
         <div className="error-box">
-          Failed to load prices. Please check your connection and try again.
+          שגיאה בטעינת המחירים. בדוק את החיבור לאינטרנט.
         </div>
       )}
 
       {gold && (
         <MetalSection
-          title="Gold"
+          title="זהב"
           pricePerOzUSD={gold.price}
           purities={GOLD_PURITIES}
           currency={settings.currency}
@@ -43,7 +43,7 @@ export default function App() {
 
       {silver && (
         <MetalSection
-          title="Silver"
+          title="כסף"
           pricePerOzUSD={silver.price}
           purities={SILVER_PURITIES}
           currency={settings.currency}
@@ -54,7 +54,7 @@ export default function App() {
       )}
 
       {loading && !gold && !silver && (
-        <div className="loading-text">Loading prices...</div>
+        <div className="loading-text">טוען מחירים...</div>
       )}
     </div>
   );

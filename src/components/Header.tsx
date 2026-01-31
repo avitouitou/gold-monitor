@@ -6,23 +6,23 @@ interface HeaderProps {
 
 export function Header({ lastUpdated, loading, onRefresh }: HeaderProps) {
   const timeStr = lastUpdated
-    ? lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    ? lastUpdated.toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })
     : '—';
 
   return (
     <header className="header">
-      <h1 className="header-title">Gold &amp; Silver Prices</h1>
+      <h1 className="header-title">מחירי זהב וכסף</h1>
       <div className="header-row">
         <span className="header-updated">
-          Updated: {timeStr}
+          עודכן: {timeStr}
         </span>
         <button
           className="refresh-btn"
           onClick={onRefresh}
           disabled={loading}
-          aria-label="Refresh prices"
+          aria-label="רענון מחירים"
         >
-          {loading ? '⟳' : '↻'} Refresh
+          {loading ? '⟳' : '↻'} רענון
         </button>
       </div>
     </header>
