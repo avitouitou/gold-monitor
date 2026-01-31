@@ -10,7 +10,7 @@ function loadSettings(): Settings {
   } catch {
     // ignore
   }
-  return { currency: 'USD', unit: 'gram' };
+  return { currency: 'USD', unit: 'oz' };
 }
 
 function saveSettings(settings: Settings) {
