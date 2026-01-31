@@ -1,6 +1,32 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='192' height='192'>
-  <rect width='192' height='192' rx='38' fill='#b8860b'/>
-  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle'
-    font-size='67' font-weight='bold' fill='#ffd700'
-    font-family='sans-serif'>Au</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd700"/>
+      <stop offset="40%" stop-color="#ffbf00"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+    <linearGradient id="barTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe44d"/>
+      <stop offset="100%" stop-color="#ffd700"/>
+    </linearGradient>
+    <linearGradient id="barSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b8860b"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="38" fill="url(#bg)"/>
+  <!-- Gold bar - front face -->
+  <path d="M40,130 L60,80 L132,80 L152,130 Z" fill="url(#bar)" stroke="#a07000" stroke-width="1.5"/>
+  <!-- Gold bar - top face -->
+  <path d="M60,80 L78,58 L148,58 L132,80 Z" fill="url(#barTop)" stroke="#a07000" stroke-width="1.5"/>
+  <!-- Gold bar - right side -->
+  <path d="M132,80 L148,58 L168,108 L152,130 Z" fill="url(#barSide)" stroke="#a07000" stroke-width="1.5"/>
+  <!-- Shine line on top -->
+  <path d="M72,68 L120,68" stroke="#fff8dc" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <!-- Small shine on front -->
+  <path d="M55,100 L65,85" stroke="#fff8dc" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
 </svg>
