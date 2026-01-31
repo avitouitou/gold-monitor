@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gold-tracker-v2';
+const CACHE_NAME = 'gold-tracker-v3';
 const STATIC_ASSETS = [
   '/gold-monitor/',
   '/gold-monitor/index.html',
