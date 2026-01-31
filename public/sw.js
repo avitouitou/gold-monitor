@@ -1,10 +1,10 @@
 const CACHE_NAME = 'gold-tracker-v1';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icon-192.svg',
-  '/icon-512.svg',
+  '/gold-monitor/',
+  '/gold-monitor/index.html',
+  '/gold-monitor/manifest.json',
+  '/gold-monitor/icon-192.svg',
+  '/gold-monitor/icon-512.svg',
 ];
 
 const API_CACHE_NAME = 'gold-tracker-api-v1';
