@@ -1,8 +1,5 @@
 export interface MetalPrice {
-  name: string;
   price: number;
-  symbol: string;
-  updatedAt: string;
 }
 
 export interface ExchangeRates {

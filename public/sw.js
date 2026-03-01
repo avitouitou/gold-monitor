@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gold-tracker-v4';
+const CACHE_NAME = 'gold-tracker-v5';
 const STATIC_ASSETS = [
   '/gold-monitor/',
   '/gold-monitor/index.html',
@@ -33,7 +33,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   // API requests: network-first, fall back to cache
-  if (url.hostname.includes('gold-api.com') || url.hostname.includes('open.er-api.com')) {
+  if (url.hostname.includes('metals.live') || url.hostname.includes('open.er-api.com')) {
     event.respondWith(
       fetch(event.request)
         .then((response) => {

@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { PriceData } from '../types';
 import {
-  fetchGoldPrice,
-  fetchSilverPrice,
+  fetchMetalPrices,
   fetchExchangeRates,
   getCachedGold,
   getCachedSilver,
@@ -39,9 +38,8 @@ export function usePrices(): PriceData & { refresh: () => void } {
     }
 
     try {
-      const [gold, silver, rates] = await Promise.all([
-        fetchGoldPrice(),
-        fetchSilverPrice(),
+      const [{ gold, silver }, rates] = await Promise.all([
+        fetchMetalPrices(),
         fetchExchangeRates(),
       ]);
 

@@ -1,5 +1,5 @@
 import type { MetalPrice, ExchangeRates } from './types';
-import { API_GOLD, API_SILVER, API_FOREX, FOREX_CACHE_MS } from './constants';
+import { API_METALS, API_FOREX, FOREX_CACHE_MS } from './constants';
 
 const LS_GOLD = 'cached_gold';
 const LS_SILVER = 'cached_silver';
@@ -22,20 +22,35 @@ function loadFromCache<T>(key: string): T | null {
   }
 }
 
-export async function fetchGoldPrice(): Promise<MetalPrice> {
-  const res = await fetch(API_GOLD);
-  if (!res.ok) throw new Error(`Gold API error: ${res.status}`);
-  const data: MetalPrice = await res.json();
-  saveToCache(LS_GOLD, data);
-  return data;
+// api.metals.live returns: [{"gold": price}, {"silver": price}, ..., {"timestamp": ts}]
+type MetalsApiEntry = Record<string, number>;
+
+function findPrice(entries: MetalsApiEntry[], metal: string): number | undefined {
+  for (const entry of entries) {
+    if (metal in entry) return entry[metal];
+  }
+  return undefined;
 }
 
-export async function fetchSilverPrice(): Promise<MetalPrice> {
-  const res = await fetch(API_SILVER);
-  if (!res.ok) throw new Error(`Silver API error: ${res.status}`);
-  const data: MetalPrice = await res.json();
-  saveToCache(LS_SILVER, data);
-  return data;
+export async function fetchMetalPrices(): Promise<{ gold: MetalPrice; silver: MetalPrice }> {
+  const res = await fetch(API_METALS);
+  if (!res.ok) throw new Error(`Metals API error: ${res.status}`);
+  const data: MetalsApiEntry[] = await res.json();
+
+  const goldPrice = findPrice(data, 'gold');
+  const silverPrice = findPrice(data, 'silver');
+
+  if (goldPrice === undefined || silverPrice === undefined) {
+    throw new Error('Missing gold or silver price in API response');
+  }
+
+  const gold: MetalPrice = { price: goldPrice };
+  const silver: MetalPrice = { price: silverPrice };
+
+  saveToCache(LS_GOLD, gold);
+  saveToCache(LS_SILVER, silver);
+
+  return { gold, silver };
 }
 
 let cachedRates: ExchangeRates | null = null;
