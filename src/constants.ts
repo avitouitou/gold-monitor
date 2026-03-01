@@ -1,6 +1,6 @@
 import type { PurityLevel } from './types';
 
-export const API_METALS = 'https://api.metals.live/v1/spot';
+export const API_PRICES = 'https://data-asg.goldprice.org/dbXRates/USD';
 export const API_FOREX = 'https://open.er-api.com/v6/latest/USD';
 
 export const TROY_OZ_TO_GRAM = 31.1035;
