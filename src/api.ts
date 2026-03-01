@@ -33,7 +33,7 @@ function findPrice(entries: MetalsApiEntry[], metal: string): number | undefined
 }
 
 export async function fetchMetalPrices(): Promise<{ gold: MetalPrice; silver: MetalPrice }> {
-  const res = await fetch(API_METALS);
+  const res = await fetch(API_METALS, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Metals API error: ${res.status}`);
   const data: MetalsApiEntry[] = await res.json();
 
@@ -60,7 +60,7 @@ export async function fetchExchangeRates(): Promise<ExchangeRates> {
     return cachedRates;
   }
 
-  const res = await fetch(API_FOREX);
+  const res = await fetch(API_FOREX, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Forex API error: ${res.status}`);
   const data = await res.json();
   cachedRates = { rates: data.rates, fetchedAt: Date.now() };

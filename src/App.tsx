@@ -29,6 +29,12 @@ export default function App() {
         </div>
       )}
 
+      {error && (gold || silver) && (
+        <div className="stale-badge">
+          המחירים עשויים להיות לא עדכניים
+        </div>
+      )}
+
       {gold && (
         <MetalSection
           title="זהב"

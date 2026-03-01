@@ -153,6 +153,18 @@ body {
   margin-bottom: 16px;
 }
 
+/* Stale data warning */
+.stale-badge {
+  text-align: center;
+  background: #f57c00;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
 /* Loading */
 .loading-text {
   text-align: center;
